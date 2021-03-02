@@ -1,0 +1,5 @@
+Requirement already satisfied: tensorflow in c:\users\gal\pycharmprojects\fastimagerecognition\venv\lib\site-packages (1.0.0)
+Requirement already satisfied: six>=1.10.0 in c:\users\gal\pycharmprojects\fastimagerecognition\venv\lib\site-packages (from tensorflow) (1.15.0)
+Requirement already satisfied: wheel>=0.26 in c:\users\gal\pycharmprojects\fastimagerecognition\venv\lib\site-packages (from tensorflow) (0.36.2)
+Requirement already satisfied: numpy>=1.11.0 in c:\users\gal\pycharmprojects\fastimagerecognition\venv\lib\site-packages (from tensorflow) (1.20.1)
+Requirement already satisfied: protobuf>=3.1.0 in c:\users\gal\pycharmprojects\fastimagerecognition\venv\lib\site-packages (from tensorflow) (3.15.3)
