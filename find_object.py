@@ -32,6 +32,7 @@ import numpy as np
 import os
 import cv2
 import matplotlib.pyplot as plt
+import sys
 
 from tensorflow.keras.preprocessing import image
 # from tensorflow.keras.applications import imagenet_utils
@@ -237,6 +238,9 @@ def FindObjectIn1Pic(img_path, Firstmodel, model, paths, MainClass, imgntClasses
         OutImg = videct.CrtBoxAndLblImg(CV_image, [MainClass], net, PredClass, FontScale=fontScale,
                                         Fnthickness=FontThick)
     if ColorObj:
+        CheckFile = 'mask_rcnn_coco.h5'
+        if CheckFile not in sys.modules:
+            videct.preparePixelLibModel(Modeltype='segmenation')
         filename = os.path.basename(img_path)
         Dir = os.path.dirname(img_path)
         # Color the image and save it to the directory it got it from with prefix SEG_
