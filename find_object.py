@@ -246,7 +246,7 @@ def FindObjectIn1Pic(img_path, Firstmodel, model, paths, MainClass, imgntClasses
         # Color the image and save it to the directory it got it from with prefix SEG_
         videct.Segment_an_Image(img_path, Dir + 'SEG_' + filename)
         # Read the image and remove the SEG_ file
-        OutImg = image.load_img(Dir + 'SEG_' + filename, target_size=(224, 224))
+        OutImg = cv2.imread(Dir + 'SEG_' + filename)
         os.remove(Dir + 'SEG_' + filename)
 
     if OutImg is not None:
