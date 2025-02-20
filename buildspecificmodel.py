@@ -28,7 +28,7 @@ from matplotlib.ticker import MultipleLocator
 
 from tensorflow.keras.applications.resnet50 import ResNet50
 from tensorflow.keras.preprocessing import image
-from tensorflow.keras.experimental import CosineDecay, CosineDecayRestarts, LinearCosineDecay
+from tensorflow.keras.optimizers.schedules import CosineDecay, CosineDecayRestarts
 from tensorflow.keras.optimizers import Adam, Nadam, Adamax, SGD
 from collections import Counter
 
@@ -68,7 +68,6 @@ def PickLearnRateDecay(option, ParamDic={}):
     :param option: string. The type of learning rate desired. Supports:
                                                                         CosineDecay
                                                                         CosineDecayRestarts
-                                                                        LinearCosineDecay
     :param ParamDic: dictionary. If a parameter is in the dictionary then take that value, if not then use defaults.
     :return: A keras learning_rate_schedule object according to the request in the option parameter.
     """
@@ -99,9 +98,6 @@ def PickLearnRateDecay(option, ParamDic={}):
     elif option == 'CosineDecayRestarts':
         lr_decayed = CosineDecayRestarts(initial_learning_rate=ILR, first_decay_steps=DS, t_mul=tMul, m_mul=mMul,
                                          alpha=Alp, name='CosineDecayRestarts')
-    elif option == 'LinearCosineDecay':
-        lr_decayed = LinearCosineDecay(initial_learning_rate=ILR, decay_steps=DS, num_periods=NPer, alpha=Alp,
-                                       beta=Beta, name='CosineDecayRestarts')
     else:
         print('Incorrect parameter:' + str(option))
         return
