@@ -41,7 +41,7 @@ import multiprocessing
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from shutil import copyfile
 import urllib.request
-from keras.layers import batchnormalization
+from tensorflow.keras.layers import BatchNormalization
 
 import pixellib
 import urllib
